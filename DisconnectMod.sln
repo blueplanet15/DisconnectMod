@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisconnectMod", "DisconnectMod\DisconnectMod.csproj", "{492001F6-2AE4-42DC-B702-3FC83E37F7D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{492001F6-2AE4-42DC-B702-3FC83E37F7D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{492001F6-2AE4-42DC-B702-3FC83E37F7D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{492001F6-2AE4-42DC-B702-3FC83E37F7D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{492001F6-2AE4-42DC-B702-3FC83E37F7D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0296DF80-562A-44DD-AF8B-AE8F743B89D8}
+	EndGlobalSection
+EndGlobal
