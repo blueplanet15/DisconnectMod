@@ -1,11 +1,22 @@
-﻿using BepInEx;
+using BepInEx;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.XR;
 
-[BepInPlugin("com.BP15.disconnectmod", "Disconnect Mod", "1.0.2")]
+[BepInPlugin(PluginInfo.GUID, PluginInfo.Name, PluginInfo.Version)]
 public class DisconnectMod : BaseUnityPlugin
 {
+    void Start()
+    {
+        Logger.LogInfo($"Plugin {PluginInfo.GUID} is laoded!");
+    }
+    internal class PluginInfo
+    {
+        public const string GUID = "com.BP15.DisconnectMod";
+        public const string Name = "Disconnect Mod";
+        public const string Version = "1.0.0";
+    }
+
     void Update()
     {
         if (IsButtonPressed(XRNode.LeftHand, CommonUsages.primaryButton) &&
