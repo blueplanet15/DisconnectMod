@@ -3,44 +3,48 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.XR;
 
-[BepInPlugin(PluginInfo.GUID, PluginInfo.Name, PluginInfo.Version)]
-public class DisconnectMod : BaseUnityPlugin
+namespace DisconnectMod
 {
-    void Start()
+    [BepInPlugin(PluginInfo.GUID, PluginInfo.Name, PluginInfo.Version)]
+    public class DisconnectMod : BaseUnityPlugin
     {
-        Logger.LogInfo($"Plugin {PluginInfo.GUID} is laoded!");
-    }
-    internal class PluginInfo
-    {
-        public const string GUID = "com.BP15.DisconnectMod";
-        public const string Name = "Disconnect Mod";
-        public const string Version = "1.0.0";
-    }
-
-    void Update()
-    {
-        if (IsButtonPressed(XRNode.LeftHand, CommonUsages.primaryButton) &&
-            IsButtonPressed(XRNode.LeftHand, CommonUsages.secondaryButton) &&
-            (IsButtonPressed(XRNode.RightHand, CommonUsages.primaryButton) &&
-            IsButtonPressed(XRNode.RightHand, CommonUsages.secondaryButton)))
+        void Start()
         {
-            DisconnectFromRoom();
+            PhotonNetwork.LocalPlayer.SetCustomProperties(new ExitGames.Client.Photon.Hashtable()
+{
+                {
+                    PluginInfo.Name,
+                    PluginInfo.Version
+                }
+            }, null, null);
+            Logger.LogInfo($"Plugin {PluginInfo.GUID} is laoded!");
         }
-    }
 
-    bool IsButtonPressed(XRNode node, InputFeatureUsage<bool> button)
-    {
-        InputDevice device = InputDevices.GetDeviceAtXRNode(node);
-        if (device.TryGetFeatureValue(button, out bool pressed))
+        void Update()
         {
-            return pressed;
+            if (IsButtonPressed(XRNode.LeftHand, CommonUsages.primaryButton) &&
+                IsButtonPressed(XRNode.LeftHand, CommonUsages.secondaryButton) &&
+                (IsButtonPressed(XRNode.RightHand, CommonUsages.primaryButton) &&
+                IsButtonPressed(XRNode.RightHand, CommonUsages.secondaryButton)))
+            {
+                DisconnectFromRoom();
+            }
         }
-        return false;
-    }
 
-    private void DisconnectFromRoom()
-    {
-        PhotonNetwork.Disconnect();
-        Debug.Log((object)"Player disconnected from the room.");
+        bool IsButtonPressed(XRNode node, InputFeatureUsage<bool> button)
+        {
+            InputDevice device = InputDevices.GetDeviceAtXRNode(node);
+            if (device.TryGetFeatureValue(button, out bool pressed))
+            {
+                return pressed;
+            }
+            return false;
+        }
+
+        private void DisconnectFromRoom()
+        {
+            PhotonNetwork.Disconnect();
+            Debug.Log((object)"Player disconnected from the room.");
+        }
     }
 }
