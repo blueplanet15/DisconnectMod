@@ -22,10 +22,8 @@ namespace DisconnectMod
 
         void Update()
         {
-            if (IsButtonPressed(XRNode.LeftHand, CommonUsages.primaryButton) &&
-                IsButtonPressed(XRNode.LeftHand, CommonUsages.secondaryButton) &&
-                (IsButtonPressed(XRNode.RightHand, CommonUsages.primaryButton) &&
-                IsButtonPressed(XRNode.RightHand, CommonUsages.secondaryButton)))
+            if (IsButtonPressed(XRNode.RightHand, CommonUsages.primaryButton) &&
+                IsButtonPressed(XRNode.RightHand, CommonUsages.secondaryButton))
             {
                 DisconnectFromRoom();
             }
